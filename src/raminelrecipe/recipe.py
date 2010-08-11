@@ -195,7 +195,7 @@ class Recipe(object):
         if self.is_svn_url(version):
             self.install_svn_version(version, download_dir, location,
                                      self.install_from_cache)
-        else:
+        elif version != 'ignore':
             tarball = self.get_release(version, download_dir)
             # Extract and put the dir in its proper place
             self.install_release(version, download_dir, tarball, location)
