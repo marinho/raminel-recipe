@@ -13,7 +13,7 @@ changes = read_file('CHANGES.txt')
 
 setup(name='raminelrecipe',
       version=version,
-      description="Buildout recipe for Raminel Django projects",
+      description="Buildout recipe for Raminel's Django projects",
       long_description='\n\n'.join([readme, changes]),
       classifiers=[
         'Framework :: Buildout',
@@ -25,8 +25,8 @@ setup(name='raminelrecipe',
       package_dir={'': 'src'},
       packages=find_packages('src'),
       keywords='',
-      author='Jeroen Vloothuis',
-      author_email='jeroen.vloothuis@xs4all.nl',
+      author='Marinho Brandao', # original author is: Jeroen Vloothuis
+      author_email='marinho@gmail.com', # jeroen.vloothuis@xs4all.nl
       url='', #'https://launchpad.net/djangorecipe',
       license='BSD',
       zip_safe=False,

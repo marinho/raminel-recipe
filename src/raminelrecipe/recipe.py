@@ -208,7 +208,7 @@ class Recipe(object):
         del self.options['setup']
 
         extra_paths = self.get_extra_paths()
-        requirements, ws = self.egg.working_set(['djangorecipe'])
+        requirements, ws = self.egg.working_set(['raminelrecipe'])
 
         script_paths = []
 
@@ -290,7 +290,7 @@ class Recipe(object):
         project = self.options.get('projectegg', self.options['project'])
         return zc.buildout.easy_install.scripts(
             [(self.options.get('control-script', self.name),
-              'djangorecipe.manage', 'main')],
+              'raminelrecipe.manage', 'main')],
             ws, self.options['executable'], self.options['bin-directory'],
             extra_paths = extra_paths,
             arguments= "'%s'" % (self.options['settings']))
@@ -303,7 +303,7 @@ class Recipe(object):
         if apps:
             return zc.buildout.easy_install.scripts(
                 [(self.options.get('testrunner', 'test'),
-                  'djangorecipe.test', 'main')],
+                  'raminelrecipe.test', 'main')],
                 working_set, self.options['executable'],
                 self.options['bin-directory'],
                 extra_paths = extra_paths,
@@ -361,7 +361,7 @@ class Recipe(object):
                         [('%s.%s' % (self.options.get('control-script',
                                                       self.name),
                                      protocol),
-                          'djangorecipe.%s' % protocol, 'main')],
+                          'raminelrecipe.%s' % protocol, 'main')],
                         ws,
                         self.options['executable'],
                         self.options['bin-directory'],
@@ -404,8 +404,11 @@ class Recipe(object):
 
     def get_extra_paths(self):
         extra_paths = [self.options['location'],
-                       self.buildout['buildout']['directory']
+                       os.path.join(self.buildout['buildout']['directory'], self.options['project']),
                        ]
+
+        # Appends the project directory to the scripts paths
+        #script_paths.extend(project_dir)
 
         # Add libraries found by a site .pth files to our extra-paths.
         if 'pth-files' in self.options:
@@ -433,7 +436,7 @@ class Recipe(object):
             self.svn_update(self.options['location'], self.options['version'])
 
         extra_paths = self.get_extra_paths()
-        requirements, ws = self.egg.working_set(['djangorecipe'])
+        requirements, ws = self.egg.working_set(['raminelrecipe'])
         # Create the Django management script
         self.create_manage_script(extra_paths, ws)
 

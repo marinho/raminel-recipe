@@ -1,6 +1,9 @@
 Description
 ===========
 
+"raminelrecipe" extends "djangorecipe" to change it's way to find project's
+settings module and others customizations for Raminel ERP deploy.
+
 This buildout recipe can be used to create a setup for Django. It will
 automatically download Django and install it in the buildout's
 sandbox. You can use either a release version of Django or a
