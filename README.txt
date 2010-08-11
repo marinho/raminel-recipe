@@ -18,7 +18,7 @@ You can see an example of how to use the recipe below::
   md5sum = 659a4845c1c731be5cfe29bfcc5d14b1
 
   [django]
-  recipe = djangorecipe
+  recipe = raminelrecipe
   version = trunk
   settings = development
   eggs = ${buildout:eggs}
@@ -142,7 +142,7 @@ The next example shows you how to use some more of the options::
     http://django-mptt.googlecode.com/svn/trunk/ django-mptt
 
   [django]
-  recipe = djangorecipe
+  recipe = raminelrecipe
   version = trunk
   settings = development
   project = exampleproject
@@ -175,7 +175,7 @@ path::
   urls		= http://svn.pinaxproject.com/pinax/tags/0.5.1rc1	pinax
 
   [myproject]
-  recipe	= djangorecipe
+  recipe	= raminelrecipe
   version	= 1.0.2
   eggs		= PIL
   project	= myproject
@@ -204,7 +204,7 @@ generated script use something like::
   executable = /some/special/python
 
   [myproject]
-  recipe	= djangorecipe
+  recipe	= raminelrecipe
   version	= 1.0.2
   project	= myproject
   python	= special-python

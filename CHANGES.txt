@@ -1,6 +1,11 @@
 Changes
 =======
 
+0.21
+----
+
+- Changed to make 'settings' not couppable to the project.
+
 0.20
 ----
 

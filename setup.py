@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-version = '0.20'
+version = '0.21'
 
 def read_file(name):
     return open(os.path.join(os.path.dirname(__file__),
@@ -11,9 +11,9 @@ def read_file(name):
 readme = read_file('README.txt')
 changes = read_file('CHANGES.txt')
 
-setup(name='djangorecipe',
+setup(name='raminelrecipe',
       version=version,
-      description="Buildout recipe for Django",
+      description="Buildout recipe for Raminel Django projects",
       long_description='\n\n'.join([readme, changes]),
       classifiers=[
         'Framework :: Buildout',
@@ -27,7 +27,7 @@ setup(name='djangorecipe',
       keywords='',
       author='Jeroen Vloothuis',
       author_email='jeroen.vloothuis@xs4all.nl',
-      url='https://launchpad.net/djangorecipe',
+      url='', #'https://launchpad.net/djangorecipe',
       license='BSD',
       zip_safe=False,
       install_requires=[
@@ -37,6 +37,6 @@ setup(name='djangorecipe',
       entry_points="""
       # -*- Entry points: -*-
       [zc.buildout]
-      default = djangorecipe.recipe:Recipe
+      default = raminelrecipe.recipe:Recipe
       """,
       )

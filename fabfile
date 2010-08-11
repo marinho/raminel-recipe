@@ -11,22 +11,22 @@ def get_version():
     setup = open('setup.py').read()
     return version_re.search(setup).group('version')
 
-def release_djangorecipe():
+def release_raminelrecipe():
     """Release Djangorecipe to PyPi."""
     version = get_version()
     test()
     local('$(python) setup.py sdist')
     # Make sure we have a proper release that could be installed.
-    local('tar xfz %s/dist/djangorecipe-%s.tar.gz -C /tmp' % (
+    local('tar xfz %s/dist/raminelrecipe-%s.tar.gz -C /tmp' % (
             os.path.abspath('.'), version))
-    local('cd /tmp/djangorecipe-$(version); $(python) setup.py egg_info')
+    local('cd /tmp/raminelrecipe-$(version); $(python) setup.py egg_info')
     # Release the code.
     local('$(python) setup.py sdist register upload')
 
 def release():
     """Release everything related to the project."""
     set(version=get_version())
-    release_djangorecipe()
+    release_raminelrecipe()
     local('bzr tag release-$(version)')
 
 def test():
